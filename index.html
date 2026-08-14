@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Siva Sai Krishna Suryadevara</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --text-muted: #555555;
+      --border: #eaeaea;
+      --card-bg: #fbfbfb;
+      --accent: #0066cc;
+      --accent-hover: #004499;
+      --max-width: 760px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      padding: 3rem 1.5rem;
+      display: flex;
+      justify-content: center;
+    }
+    main { width: 100%; max-width: var(--max-width); }
+    header { margin-bottom: 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; }
+    h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.35rem; }
+    .tagline { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 1rem; }
+    nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+    a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    a:hover { color: var(--accent-hover); text-decoration: underline; }
+    section { margin-bottom: 2.5rem; }
+    h2 { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.35rem; }
+    p { margin-bottom: 1rem; color: #333; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-top: 1.25rem; }
+    .stat-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; text-align: center; }
+    .stat-num { font-size: 1.75rem; font-weight: 700; color: var(--text); }
+    .stat-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem; }
+    .item { margin-bottom: 1.25rem; }
+    .item-title { font-weight: 600; font-size: 1rem; }
+    .item-meta { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.35rem; }
+    ul { list-style-type: disc; padding-left: 1.25rem; }
+    li { margin-bottom: 0.6rem; color: #333; }
+    footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--text-muted); text-align: center; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Siva Sai Krishna Suryadevara</h1>
+      <p class="tagline">Software Engineer & Researcher</p>
+      <nav>
+        <a href="https://github.com/SivaSaiKrishnaSuryadevara" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://scholar.google.com" target="_blank" rel="noreferrer">Google Scholar</a>
+      </nav>
+    </header>
+
+    <section>
+      <h2>About</h2>
+      <p>
+        Software engineer and researcher focused on scalable distributed systems, cloud computing, and AI/ML applications.
+      </p>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-num">5+</div>
+          <div class="stat-label">Projects Built</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">Active</div>
+          <div class="stat-label">Open Source</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">2026</div>
+          <div class="stat-label">Research & Dev</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills & Technologies</h2>
+      <ul>
+        <li><strong>Languages:</strong> Python, Java, JavaScript/TypeScript, SQL, C++</li>
+        <li><strong>Platforms & Tools:</strong> Docker, Git, Linux, Cloud Architecture, REST APIs</li>
+      </ul>
+    </section>
+
+    <footer>
+      &copy; <span id="year"></span> Siva Sai Krishna Suryadevara. All rights reserved.
+    </footer>
+  </main>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
