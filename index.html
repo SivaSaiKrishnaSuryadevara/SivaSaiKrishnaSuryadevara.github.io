@@ -7,7 +7,7 @@
   <title>Siva Sai Krishna Suryadevara, SMIEEE, FSCRS | Cloud Architect &amp; Researcher</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #ffffff;
@@ -15,11 +15,11 @@
       --text: #0f172a;
       --text-muted: #475569;
       --border: #e2e8f0;
-      --accent: #094067;
-      --accent-light: #eff6ff;
+      --accent: #0066cc;
+      --accent-hover: #004499;
       --tag-bg: #e0f2fe;
       --tag-text: #0369a1;
-      --max-width: 860px;
+      --max-width: 800px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,7 +28,7 @@
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.68;
-      padding: 4rem 1.5rem;
+      padding: 3.5rem 1.5rem;
       display: flex;
       justify-content: center;
     }
@@ -37,8 +37,8 @@
 
     /* Header Profile */
     header {
-      margin-bottom: 2.75rem;
-      border-bottom: 2px solid var(--border);
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
       padding-bottom: 1.75rem;
     }
 
@@ -51,7 +51,7 @@
     }
 
     h1 {
-      font-size: 2.3rem;
+      font-size: 2.2rem;
       font-weight: 700;
       letter-spacing: -0.025em;
       color: var(--text);
@@ -73,9 +73,7 @@
     }
 
     .tagline {
-      font-size: 1.1rem;
-      font-family: 'Newsreader', Georgia, serif;
-      font-weight: 500;
+      font-size: 1.05rem;
       color: var(--text-muted);
       margin-bottom: 1.25rem;
     }
@@ -90,67 +88,33 @@
     a {
       color: var(--accent);
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
       transition: color 0.15s ease;
     }
 
     a:hover {
+      color: var(--accent-hover);
       text-decoration: underline;
     }
 
-    /* Adjudicator Overview Box */
-    .adjudicator-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--accent);
-      border-radius: 6px;
-      padding: 1.25rem 1.5rem;
-      margin-bottom: 2.5rem;
-      font-size: 0.95rem;
-    }
-
-    .adjudicator-box strong {
-      color: var(--accent);
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      display: block;
-      margin-bottom: 0.4rem;
-    }
-
-    section { margin-bottom: 3rem; }
+    section { margin-bottom: 2.75rem; }
 
     h2 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--accent);
-      margin-bottom: 1.25rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .uscis-ref {
-      font-size: 0.75rem;
+      font-size: 1.25rem;
       font-weight: 600;
-      color: var(--text-muted);
-      background: #f1f5f9;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      text-transform: none;
-      letter-spacing: normal;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 1.1rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.4rem;
     }
 
     p { margin-bottom: 1rem; color: #334155; }
 
-    /* Evidentiary Metrics */
+    /* Stats Grid */
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       gap: 1rem;
       margin-top: 1.5rem;
     }
@@ -159,44 +123,37 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 1.2rem 1rem;
+      padding: 1.1rem;
       text-align: center;
     }
 
     .stat-num {
-      font-size: 1.85rem;
+      font-size: 1.75rem;
       font-weight: 700;
       color: var(--text);
     }
 
     .stat-label {
-      font-size: 0.8rem;
-      font-weight: 600;
+      font-size: 0.85rem;
       color: var(--text-muted);
       margin-top: 0.25rem;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
     }
 
-    .item { margin-bottom: 1.75rem; }
-    .item-title { font-weight: 700; font-size: 1.05rem; color: var(--text); }
-    .item-meta { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.45rem; font-weight: 500; }
+    .item { margin-bottom: 1.5rem; }
+    .item-title { font-weight: 600; font-size: 1.05rem; color: var(--text); }
+    .item-meta { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.4rem; }
 
-    ul { list-style-type: square; padding-left: 1.35rem; }
-    li { margin-bottom: 0.65rem; color: #334155; }
+    ul { list-style-type: disc; padding-left: 1.25rem; }
+    li { margin-bottom: 0.6rem; color: #334155; }
 
     .pub-list { list-style: none; padding-left: 0; }
-    .pub-item {
-      margin-bottom: 1.35rem;
-      padding-left: 1rem;
-      border-left: 2px solid var(--border);
-    }
+    .pub-item { margin-bottom: 1.35rem; }
     .pub-title { font-weight: 600; color: var(--accent); display: block; margin-bottom: 0.2rem; }
     .pub-meta { font-size: 0.9rem; color: var(--text-muted); }
 
     footer {
-      margin-top: 4rem;
-      padding-top: 1.75rem;
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
       border-top: 1px solid var(--border);
       font-size: 0.85rem;
       color: var(--text-muted);
@@ -207,7 +164,6 @@
 <body>
 
   <main>
-    <!-- Header with Formal Credentials -->
     <header>
       <div class="title-badge-row">
         <h1>Siva Sai Krishna Suryadevara</h1>
@@ -216,132 +172,110 @@
           <span class="pill">FSCRS</span>
         </div>
       </div>
-      <p class="tagline">Senior Cloud DevOps Platform Architect &amp; Independent Researcher — Enterprise AWS, Kubernetes &amp; Applied AI</p>
+      <p class="tagline">Senior DevOps Engineer, Enterprise Platform Architect &amp; Independent Researcher</p>
       <nav>
-        <a href="https://scholar.google.com/citations?user=8uy_LdgAAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar Record</a>
-        <a href="https://orcid.org/0009-0009-0674-2658" target="_blank" rel="noreferrer">ORCID Registry</a>
-        <a href="https://scrs.in/scrs-fellow/694" target="_blank" rel="noreferrer">SCRS Fellow Profile</a>
-        <a href="https://github.com/SivaSaiKrishnaSuryadevara" target="_blank" rel="noreferrer">GitHub Repositories</a>
-        <a href="https://medium.com/@sivasaikrishna.suryadevara" target="_blank" rel="noreferrer">Medium Publications</a>
+        <a href="https://scholar.google.com/citations?user=8uy_LdgAAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar</a>
+        <a href="https://orcid.org/0009-0009-0674-2658" target="_blank" rel="noreferrer">ORCID</a>
+        <a href="https://scrs.in/scrs-fellow/694" target="_blank" rel="noreferrer">SCRS Profile</a>
+        <a href="https://github.com/SivaSaiKrishnaSuryadevara" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://medium.com/@sivasaikrishna.suryadevara" target="_blank" rel="noreferrer">Medium</a>
       </nav>
     </header>
 
-    <!-- Executive Summary for Adjudicators -->
-    <div class="adjudicator-box">
-      <strong>Executive Evidentiary Summary</strong>
-      Siva Sai Krishna Suryadevara is a recognized expert in enterprise cloud platform engineering and applied artificial intelligence with 14+ years of sustained contributions. His pioneering work includes sole-inventor patents in LLM-driven autonomous CI/CD failure prevention, peer-reviewed publications indexed in IEEE Xplore, leading mission-critical infrastructure under FINRA, GxP, and SOC 2 regulations, and judging international software awards (CODiE) and peer-reviewed scientific journals.
-    </div>
-
-    <!-- Evidentiary Criteria 1: Original Contributions & Patents -->
+    <!-- About Section -->
     <section>
-      <h2>
-        1. Original Contributions of Major Significance
-        <span class="uscis-ref">8 C.F.R. § 204.5(h)(3)(v)</span>
-      </h2>
-      <ul>
-        <li>
-          <strong>Sole Inventor — Indian Patent Application (202641038921):</strong> Invented an end-to-end framework for <em>Predictive LLM-Based CI/CD Failure Prevention and Automated Remediation</em>, solving intermittent build failures across enterprise cloud release cycles.
-        </li>
-        <li>
-          <strong>Co-Inventor — UK Registered Design (6528756):</strong> Proprietary user experience and architectural design framework for cloud monitoring and real-time observability continuums (with Satyendra Kumar Vanapalli).
-        </li>
-        <li>
-          <strong>Industry Architecture Adoption:</strong> Architected the <em>AEM Email Core Components</em> open-source integration, officially spotlighted and adopted across the Adobe Skill Exchange community for enterprise experience management.
-        </li>
-      </ul>
+      <h2>About</h2>
+      <p>
+        Siva Sai Krishna Suryadevara is a Senior Cloud DevOps Engineer, Enterprise Platform Architect, and Independent Researcher with over 14 years of experience architecting resilient cloud systems, automating multi-tenant DevSecOps infrastructure, and pioneering AI-driven automation frameworks for global Fortune 500 organizations in regulated sectors (including financial services under FINRA/SOC 2 and life sciences under GxP/HIPAA).
+      </p>
+      <p>
+        His scholarly contributions center on solving critical industry challenges at the intersection of enterprise cloud computing and artificial intelligence, including autonomous LLM-driven CI/CD failure prevention, carbon-aware orchestration, multi-cloud governance, and edge-cloud distributed systems.
+      </p>
 
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-num">2</div>
-          <div class="stat-label">Patents &amp; IP Designs</div>
+          <div class="stat-num">14+</div>
+          <div class="stat-label">Years Experience</div>
         </div>
         <div class="stat-card">
           <div class="stat-num">64+</div>
-          <div class="stat-label">Verified Citations</div>
+          <div class="stat-label">Citations</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num">h-5</div>
-          <div class="stat-label">Scholar Impact</div>
+          <div class="stat-num">5</div>
+          <div class="stat-label">h-index</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num">14+</div>
-          <div class="stat-label">Years Field Impact</div>
+          <div class="stat-num">2</div>
+          <div class="stat-label">Patents &amp; IP</div>
         </div>
       </div>
     </section>
 
-    <!-- Evidentiary Criteria 2: Critical & Leading Roles -->
+    <!-- Patents & Innovations -->
     <section>
-      <h2>
-        2. Performance in Leading &amp; Critical Roles
-        <span class="uscis-ref">8 C.F.R. § 204.5(h)(3)(viii)</span>
-      </h2>
+      <h2>Patents &amp; Intellectual Property</h2>
+      <ul>
+        <li><strong>Indian Patent Application (202641038921):</strong> <em>Sole Inventor</em> — Predictive LLM-driven continuous integration/continuous deployment (CI/CD) failure prevention and automated remediation frameworks.</li>
+        <li><strong>UK Registered Design (6528756):</strong> <em>Co-Inventor</em> (with Satyendra Kumar Vanapalli) — Proprietary user experience and architectural design framework for cloud monitoring and real-time observability continuums.</li>
+        <li><strong>Open-Source Architecture:</strong> AEM Email Core Components architectural contribution featured on Adobe Skill Exchange.</li>
+      </ul>
+    </section>
+
+    <!-- Experience -->
+    <section>
+      <h2>Experience</h2>
       <div class="item">
         <div class="item-title">Senior DevOps Engineer (AWS) | Evinova, Inc. (AstraZeneca Group)</div>
-        <div class="item-meta">Gaithersburg, MD | May 2021 to Present</div>
+        <div class="item-meta">Cloud Platform Engineering | Gaithersburg, MD | May 2021 to Present</div>
         <p>
-          Leads the architecture, security governance, and multi-account automation for enterprise life sciences platforms subject to stringent international regulatory compliance (GxP, HIPAA, GDPR, NIST):
+          Architecting, automating, and maintaining multi-tenant AWS cloud infrastructure and Kubernetes platforms for life sciences platforms under GxP, HIPAA, and GDPR compliance:
         </p>
         <ul>
-          <li>Engineered modular Infrastructure as Code (IaC) architectures via AWS CDK (TypeScript) and Projen across multi-account structures governed by AWS Control Tower.</li>
+          <li>Engineered modular IaC platforms with AWS CDK (TypeScript) and Projen across multi-account structures governed by AWS Control Tower.</li>
           <li>Orchestrated production Kubernetes (Amazon EKS) clusters with automated GitOps delivery pipelines via ArgoCD and GitHub Actions.</li>
-          <li>Implemented end-to-end telemetry and observability standards using OpenTelemetry, Prometheus, and Grafana.</li>
+          <li>Enforced least-privilege security using IAM boundary policies, AWS KMS encryption, and centralized monitoring with OpenTelemetry and Grafana.</li>
         </ul>
       </div>
 
       <div class="item">
-        <div class="item-title">Lead Enterprise Platform Engineer | T. Rowe Price / Maganti IT Resources</div>
-        <div class="item-meta">March 2018 to May 2021</div>
+        <div class="item-title">Lead Platform Engineer &amp; Consultant | T. Rowe Price / Maganti IT Resources LLC</div>
+        <div class="item-meta">Enterprise Infrastructure | March 2018 to May 2021</div>
         <p>
-          Served as the sole platform engineer supporting 40+ engineering teams in a tier-one financial institution under FINRA, SOC 2, and GDPR regulatory constraints:
+          Served as the sole platform engineer supporting 40+ engineering teams under FINRA, SOC 2, and GDPR regulatory constraints:
         </p>
         <ul>
-          <li>Directly managed and executed three mission-critical digital platform migrations without service disruption.</li>
-          <li>Stabilized core enterprise release pipelines following high-severity production incidents.</li>
-          <li>Engineered enterprise-wide Single Sign-On (SSO) authentication and fine-grained authorization infrastructure.</li>
+          <li>Led three enterprise-scale digital platform migrations with zero downtime.</li>
+          <li>Engineered single sign-on (SSO) authentication and fine-grained authorization infrastructure.</li>
+          <li>Mitigated high-severity production incidents, stabilizing release pipelines across enterprise clusters.</li>
         </ul>
       </div>
     </section>
 
-    <!-- Evidentiary Criteria 3: Judging the Work of Others -->
+    <!-- Professional & Peer Review Service -->
     <section>
-      <h2>
-        3. Judging the Work of Others &amp; Peer Review
-        <span class="uscis-ref">8 C.F.R. § 204.5(h)(3)(iv)</span>
-      </h2>
+      <h2>Professional &amp; Editorial Service</h2>
       <ul>
-        <li><strong>CODiE Awards Official Judge:</strong> Appointed by the Software &amp; Information Industry Association (SIIA) to evaluate premier enterprise software and AI products.</li>
-        <li><strong>Academic Peer Reviewer:</strong> Invited reviewer for Elsevier journals and Springer publications in distributed computing, network science, and cloud architectures.</li>
-        <li><strong>Academic Capstone Evaluator:</strong> Technical Judge for Kennesaw State University (KSU) C-Day Research and Project Showcase.</li>
-        <li><strong>Editorial Appointments:</strong> Academic Editor and Reviewer for the <em>Journal of Computer Science and Technology</em>.</li>
+        <li><strong>Industry Awards Judging:</strong> Official Judge for the CODiE Awards / Software &amp; Information Industry Association (SIIA), evaluating enterprise software products.</li>
+        <li><strong>Academic Peer Reviewer:</strong> Elsevier journals and Springer publications in distributed systems, AI, and cloud architectures.</li>
+        <li><strong>Conference &amp; Academic Judging:</strong> Technical Project Evaluator for Kennesaw State University (KSU) C-Day Research Showcase.</li>
+        <li><strong>Editorial Board:</strong> Academic Editor and Peer Reviewer for the <em>Journal of Computer Science and Technology</em>.</li>
       </ul>
     </section>
 
-    <!-- Evidentiary Criteria 4: Memberships in Distinguished Associations -->
+    <!-- Keynote & Speaking -->
     <section>
-      <h2>
-        4. Memberships Requiring Outstanding Achievements
-        <span class="uscis-ref">8 C.F.R. § 204.5(h)(3)(ii)</span>
-      </h2>
+      <h2>Keynote &amp; Invited Talks</h2>
       <ul>
-        <li>
-          <strong>IEEE Senior Member (SMIEEE):</strong> Institute of Electrical and Electronics Engineers — Highest professional grade awarded to fewer than 10% of members globally, requiring peer review and proven significant performance.
-        </li>
-        <li>
-          <strong>Fellow, Soft Computing Research Society (FSCRS):</strong> Conferred by the SCRS in recognition of sustained scientific contributions and leadership in computational intelligence and applied computing.
-        </li>
-        <li>
-          <strong>Member, Association for Computing Machinery (ACM):</strong> Professional member of the world's premier computing society.
-        </li>
+        <li><strong>Keynote Speaker:</strong> International Conference on Artificial Intelligence and Networking (ICAIN-2025), BITS Pilani Dubai Campus.</li>
+        <li><strong>Invited Speaker:</strong> 4th International Conference on Computing, Communication and Networks (ICCCN 2023), Manchester Metropolitan University.</li>
+        <li><strong>Speaker:</strong> Global AI Conference, presenting on autonomous cloud systems and scalable ML operations.</li>
       </ul>
     </section>
 
-    <!-- Evidentiary Criteria 5: Scholarly Articles -->
+    <!-- Publications -->
     <section>
-      <h2>
-        5. Authorship of Scholarly Articles
-        <span class="uscis-ref">8 C.F.R. § 204.5(h)(3)(vi)</span>
-      </h2>
+      <h2>Selected Publications</h2>
       <ul class="pub-list">
         <li class="pub-item">
           <a class="pub-title" href="https://doi.org/10.1109/i3ctcon68242.2026.11507837" target="_blank">Cognitive AI Orchestration for Autonomous Edge-Cloud Continuums</a>
@@ -365,35 +299,33 @@
         </li>
       </ul>
       <p style="margin-top: 1rem;">
-        <a href="https://scholar.google.com/citations?user=8uy_LdgAAAAJ&hl=en" target="_blank">Access full citation index &amp; publication history on Google Scholar &rarr;</a>
+        <a href="https://scholar.google.com/citations?user=8uy_LdgAAAAJ&hl=en" target="_blank">View full publication list on Google Scholar &rarr;</a>
       </p>
     </section>
 
-    <!-- Comparable Evidence: Keynote & Invited Lectures -->
+    <!-- Honors & Memberships -->
     <section>
-      <h2>
-        6. Keynote &amp; Invited Speaking Engagements
-        <span class="uscis-ref">Comparable Evidence</span>
-      </h2>
+      <h2>Honors &amp; Professional Credentials</h2>
       <ul>
-        <li><strong>Keynote Address:</strong> International Conference on Artificial Intelligence and Networking (ICAIN-2025), BITS Pilani Dubai Campus.</li>
-        <li><strong>Invited Speaker:</strong> 4th International Conference on Computing, Communication and Networks (ICCCN 2023), Manchester Metropolitan University.</li>
-        <li><strong>Invited Speaker:</strong> Global AI Conference — Autonomous Cloud Systems and Scalable ML Operations.</li>
+        <li><strong>IEEE Senior Member (SMIEEE):</strong> Institute of Electrical and Electronics Engineers (conferred to less than 10% of members for significant performance and maturity).</li>
+        <li><strong>Fellow, Soft Computing Research Society (FSCRS):</strong> Conferred for sustained scholarly contributions in computational intelligence.</li>
+        <li><strong>Member, Association for Computing Machinery (ACM):</strong> Professional member of ACM.</li>
+        <li><strong>Adobe Certified Expert:</strong> AEM Developer Certification.</li>
       </ul>
     </section>
 
-    <!-- Published Media & Thought Leadership -->
+    <!-- Media & Writing -->
     <section>
-      <h2>7. Media Coverage &amp; Technical Authorship</h2>
+      <h2>Media &amp; Technical Writing</h2>
       <ul>
-        <li><strong>Technical Authorship:</strong> Author of 11+ published technical analyses on enterprise AWS CDK, Kubernetes scaling, and GitOps on <a href="https://medium.com/@sivasaikrishna.suryadevara" target="_blank" rel="noreferrer">Medium</a>.</li>
-        <li><strong>Press &amp; Media Mentions:</strong> Featured insights on automated infrastructure governance profiled in Yahoo Finance, USA Today, and Business Insider.</li>
+        <li><strong>Technical Articles:</strong> Author of 11+ published technical analyses on enterprise AWS CDK, Kubernetes scaling, and GitOps on <a href="https://medium.com/@sivasaikrishna.suryadevara" target="_blank" rel="noreferrer">Medium</a>.</li>
+        <li><strong>Industry Press:</strong> Profiled for contributions in automated infrastructure governance across Yahoo Finance, USA Today, and Business Insider.</li>
       </ul>
     </section>
 
     <!-- Education -->
     <section>
-      <h2>Academic Background</h2>
+      <h2>Education</h2>
       <div class="item">
         <div class="item-title">Master of Science in Computer Science</div>
         <div class="item-meta">Sacred Heart University, USA</div>
@@ -405,7 +337,7 @@
     </section>
 
     <footer>
-      &copy; <span id="year"></span> Siva Sai Krishna Suryadevara. All rights reserved. | Official Dossier Repository
+      &copy; <span id="year"></span> Siva Sai Krishna Suryadevara. All rights reserved.
     </footer>
   </main>
 
