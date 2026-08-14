@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Siva Sai Krishna Suryadevara — Portfolio & Researcher</title>
+  <title>Siva Sai Krishna Suryadevara — Senior DevOps Engineer & Cloud Platform Architect</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
       --card-bg: #fbfbfb;
       --accent: #0066cc;
       --accent-hover: #004499;
-      --max-width: 760px;
+      --max-width: 780px;
     }
 
     * {
@@ -125,7 +125,7 @@
 
     /* Experience Items */
     .exp-item {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.75rem;
     }
 
     .exp-role {
@@ -136,7 +136,7 @@
     .exp-meta {
       font-size: 0.9rem;
       color: var(--text-muted);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
 
     /* Lists */
@@ -146,7 +146,7 @@
     }
 
     li {
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
       color: #333;
     }
 
@@ -188,7 +188,7 @@
     <!-- Header -->
     <header>
       <h1>Siva Sai Krishna Suryadevara</h1>
-      <p class="tagline">Enterprise Platform Architect & Independent Researcher — Cloud, AI/ML & DevSecOps</p>
+      <p class="tagline">Senior DevOps Engineer & Cloud Platform Architect — AWS, Kubernetes & DevSecOps</p>
       <nav>
         <a href="https://scholar.google.com/citations?user=8uy_LdgAAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar</a>
         <a href="https://orcid.org/0009-0009-0674-2658" target="_blank" rel="noreferrer">ORCID</a>
@@ -201,13 +201,17 @@
     <section>
       <h2>About</h2>
       <p>
-        Siva Sai Krishna Suryadevara is a Senior Software Engineer, Lead AEM Consultant, and independent researcher with extensive experience delivering cloud-native architectures, enterprise digital experience platforms (DXPs), and AI-driven automation systems for Fortune 500 organizations.
+        Siva Sai Krishna Suryadevara is a Senior DevOps Engineer and Cloud Platform Architect with extensive experience designing, engineering, and operating secure, highly available AWS cloud platforms and GitOps automation frameworks for multi-tenant SaaS environments in regulated healthcare and enterprise domains.
       </p>
       <p>
-        His research bridges enterprise software engineering and applied artificial intelligence—focusing on LLM-driven DevSecOps automation, carbon-aware cloud orchestration, multi-cloud governance, and autonomous edge-cloud continuums. He actively serves as an Academic Editor and peer reviewer for leading IEEE conferences and Elsevier journals.
+        He specializes in Infrastructure as Code (IaC) using AWS CDK (TypeScript) and CloudFormation, Amazon EKS cluster architecture, zero-trust cloud security (IAM, AWS WAF, KMS), and resilient CI/CD pipelines via GitHub Actions and ArgoCD under strict compliance standards (GxP, HIPAA, GDPR, NIST). His independent research focuses on autonomous DevSecOps agents, AI-driven failure remediation, and edge-cloud orchestration.
       </p>
 
       <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-num">14+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
         <div class="stat-card">
           <div class="stat-num">20+</div>
           <div class="stat-label">Publications</div>
@@ -216,10 +220,6 @@
           <div class="stat-num">70+</div>
           <div class="stat-label">Citations</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-num">14+</div>
-          <div class="stat-label">Years Experience</div>
-        </div>
       </div>
     </section>
 
@@ -227,20 +227,41 @@
     <section>
       <h2>Experience</h2>
       <div class="exp-item">
-        <div class="exp-role">Senior Software Engineer / AWS DevOps Engineer · Evinova (AstraZeneca)</div>
-        <div class="exp-meta">May 2021 – Present</div>
+        <div class="exp-role">Senior DevOps Engineer (AWS) · Evinova, Inc. (AstraZeneca Group)</div>
+        <div class="exp-meta">Cloud Platform Engineering · Gaithersburg, MD · May 2021 – Present</div>
         <p>
-          Architecting resilient cloud infrastructure, DevSecOps pipelines, and scalable health-tech platforms across multi-cloud environments.
+          Architecting, automating, and maintaining secure multi-account AWS cloud infrastructure and Kubernetes platforms supporting enterprise-grade, multi-tenant SaaS solutions in regulated life sciences:
         </p>
+        <ul>
+          <li><strong>IaC & Multi-Account Architecture:</strong> Design and build modular, reusable infrastructure using AWS CDK (TypeScript), Projen, and CloudFormation across multi-account architectures managed with AWS Control Tower.</li>
+          <li><strong>Kubernetes & Containers:</strong> Deploy and manage containerized workloads on Amazon EKS using Helm charts, RBAC, network policies, and auto-scaling.</li>
+          <li><strong>GitOps & CI/CD:</strong> Implement automated, repeatable CI/CD pipelines using GitHub Actions and GitOps workflows via ArgoCD with built-in validation, automated rollback, and security checks.</li>
+          <li><strong>Security & Compliance:</strong> Enforce least-privilege IAM policies, KMS encryption standards, AWS WAF rules, and CloudTrail auditing to meet GxP, HIPAA, GDPR, and NIST compliance.</li>
+          <li><strong>Observability:</strong> Build centralized telemetry, metrics, and alerting frameworks with OpenTelemetry, Prometheus, Grafana, and AWS CloudWatch.</li>
+        </ul>
       </div>
 
       <div class="exp-item">
         <div class="exp-role">Senior Consultant – AEM & Digital Platforms · Maganti IT Resources LLC</div>
         <div class="exp-meta">Urbana, IL · March 2018 – Present</div>
         <p>
-          Delivering enterprise content management, CI/CD automation, and cloud-native AEM architectures for enterprise clients across regulated industries.
+          Leading digital experience platform (DXP) architectures, continuous deployment automation, and enterprise content management systems for Fortune 500 clients.
         </p>
       </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section>
+      <h2>Core Technical Skills</h2>
+      <ul>
+        <li><strong>Cloud & AWS Services:</strong> VPC, IAM, Amazon EKS, Lambda, EC2, S3, RDS, AWS WAF, EventBridge, CloudTrail, KMS, CloudFront, AWS Control Tower, Transit Gateway, ALB.</li>
+        <li><strong>Infrastructure as Code (IaC):</strong> AWS CDK (TypeScript), AWS CloudFormation, Projen, Terraform.</li>
+        <li><strong>Containers & Orchestration:</strong> Docker, Kubernetes, Amazon EKS, Helm, Service Meshes.</li>
+        <li><strong>CI/CD & GitOps:</strong> ArgoCD, GitHub Actions, Jenkins, Automated Rollbacks & Pipeline Security.</li>
+        <li><strong>Observability & SRE:</strong> OpenTelemetry, Prometheus, Grafana, AWS CloudWatch, Distributed Tracing.</li>
+        <li><strong>Security & Compliance:</strong> IAM Boundary Policies, Zero-Trust Architecture, KMS, GxP, HIPAA, GDPR, NIST.</li>
+        <li><strong>Programming & Scripting:</strong> TypeScript, Python, Bash, Java.</li>
+      </ul>
     </section>
 
     <!-- Honors & Professional Credentials -->
@@ -260,8 +281,8 @@
       <ul>
         <li><strong>Academic Editor & Peer Reviewer:</strong> Journal of Computer Science & Technology</li>
         <li><strong>Peer Reviewer:</strong> Elsevier journals and IEEE conferences</li>
-        <li><strong>Conference Leadership:</strong> Keynote speaker, session chair, and student hackathon judge</li>
-        <li><strong>Patent & Innovation:</strong> Inventor of predictive LLM-based CI/CD failure prevention and automated remediation systems</li>
+        <li><strong>Conference Leadership:</strong> Keynote speaker, session chair, and technical judge</li>
+        <li><strong>Patent & Innovation:</strong> Predictive LLM-based CI/CD failure prevention and automated remediation systems</li>
       </ul>
     </section>
 
@@ -284,10 +305,6 @@
         <li class="pub-item">
           <span class="pub-title">AI-Driven Carbon-Aware Orchestration for Sustainable Cloud Deployments</span>
           <div class="pub-meta">International Journal of Emerging Research in Engineering and Technology, 2024</div>
-        </li>
-        <li class="pub-item">
-          <span class="pub-title">Zero-Trust Multi-Cloud Architecture for Secure Experience Management</span>
-          <div class="pub-meta">International Journal of Emerging Trends in Computer Science and Information, 2023</div>
         </li>
         <li class="pub-item">
           <span class="pub-title">Autonomous DevSecOps Agent for Continuous Governance and Compliance in Multi-Cloud DXPs</span>
