@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Siva Sai Krishna Suryadevara — Senior DevOps Engineer & Cloud Platform Architect</title>
+  <title>Siva Sai Krishna Suryadevara — Cloud Architect & Independent Researcher</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -16,15 +16,10 @@
       --card-bg: #fbfbfb;
       --accent: #0066cc;
       --accent-hover: #004499;
-      --max-width: 780px;
+      --max-width: 800px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: var(--bg);
@@ -35,10 +30,7 @@
       justify-content: center;
     }
 
-    main {
-      width: 100%;
-      max-width: var(--max-width);
-    }
+    main { width: 100%; max-width: var(--max-width); }
 
     header {
       margin-bottom: 2.5rem;
@@ -47,7 +39,7 @@
     }
 
     h1 {
-      font-size: 2.1rem;
+      font-size: 2.2rem;
       font-weight: 700;
       letter-spacing: -0.02em;
       margin-bottom: 0.4rem;
@@ -56,7 +48,7 @@
     .tagline {
       font-size: 1.05rem;
       color: var(--text-muted);
-      margin-bottom: 1.1rem;
+      margin-bottom: 1.2rem;
     }
 
     nav {
@@ -77,9 +69,7 @@
       text-decoration: underline;
     }
 
-    section {
-      margin-bottom: 2.5rem;
-    }
+    section { margin-bottom: 2.75rem; }
 
     h2 {
       font-size: 1.25rem;
@@ -87,18 +77,14 @@
       margin-bottom: 1rem;
       letter-spacing: -0.01em;
       border-bottom: 1px solid var(--border);
-      padding-bottom: 0.35rem;
+      padding-bottom: 0.4rem;
     }
 
-    p {
-      margin-bottom: 1rem;
-      color: #333;
-    }
+    p { margin-bottom: 1rem; color: #333; }
 
-    /* Stats Grid */
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 1rem;
       margin-top: 1.5rem;
     }
@@ -123,54 +109,17 @@
       margin-top: 0.25rem;
     }
 
-    /* Experience Items */
-    .exp-item {
-      margin-bottom: 1.75rem;
-    }
+    .item { margin-bottom: 1.5rem; }
+    .item-title { font-weight: 600; font-size: 1.05rem; }
+    .item-meta { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.4rem; }
 
-    .exp-role {
-      font-weight: 600;
-      font-size: 1.05rem;
-    }
+    ul { list-style-type: disc; padding-left: 1.25rem; }
+    li { margin-bottom: 0.6rem; color: #333; }
 
-    .exp-meta {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
-    }
-
-    /* Lists */
-    ul {
-      list-style-type: disc;
-      padding-left: 1.25rem;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
-      color: #333;
-    }
-
-    /* Publications */
-    .pub-list {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .pub-item {
-      margin-bottom: 1.25rem;
-    }
-
-    .pub-title {
-      font-weight: 600;
-      color: var(--accent);
-      display: block;
-      margin-bottom: 0.2rem;
-    }
-
-    .pub-meta {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
+    .pub-list { list-style: none; padding-left: 0; }
+    .pub-item { margin-bottom: 1.35rem; }
+    .pub-title { font-weight: 600; color: var(--accent); display: block; margin-bottom: 0.2rem; }
+    .pub-meta { font-size: 0.9rem; color: var(--text-muted); }
 
     footer {
       margin-top: 3.5rem;
@@ -185,110 +134,97 @@
 <body>
 
   <main>
-    <!-- Header -->
     <header>
       <h1>Siva Sai Krishna Suryadevara</h1>
-      <p class="tagline">Senior DevOps Engineer & Cloud Platform Architect — AWS, Kubernetes & DevSecOps</p>
+      <p class="tagline">Enterprise Cloud Platform Architect & Independent Researcher — AWS, Kubernetes, AI/ML & DevSecOps</p>
       <nav>
-        <a href="https://scholar.google.com/citations?user=8uy_LdgAAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar</a>
-        <a href="https://orcid.org/0009-0009-0674-2658" target="_blank" rel="noreferrer">ORCID</a>
-        <a href="https://github.com/SivaSaiKrishnaSuryadevara" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://scholar.google.com/citations?user=8uy_LdgAAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar Profile</a>
+        <a href="https://orcid.org/0009-0009-0674-2658" target="_blank" rel="noreferrer">ORCID Record</a>
         <a href="https://scrs.in/scrs-fellow/694" target="_blank" rel="noreferrer">SCRS Fellow Profile</a>
+        <a href="https://github.com/SivaSaiKrishnaSuryadevara" target="_blank" rel="noreferrer">GitHub</a>
       </nav>
     </header>
 
-    <!-- About Section -->
+    <!-- Professional Summary / Impact -->
     <section>
-      <h2>About</h2>
+      <h2>Executive Research & Engineering Profile</h2>
       <p>
-        Siva Sai Krishna Suryadevara is a Senior DevOps Engineer and Cloud Platform Architect with extensive experience designing, engineering, and operating secure, highly available AWS cloud platforms and GitOps automation frameworks for multi-tenant SaaS environments in regulated healthcare and enterprise domains.
+        Siva Sai Krishna Suryadevara is a Senior Cloud DevOps Engineer, Enterprise Platform Architect, and Independent Researcher with over 14 years of experience pioneering enterprise digital architectures, resilient cloud-native platforms, and AI-driven automation frameworks for global Fortune 500 organizations in regulated domains (healthcare, life sciences, and enterprise tech).
       </p>
       <p>
-        He specializes in Infrastructure as Code (IaC) using AWS CDK (TypeScript) and CloudFormation, Amazon EKS cluster architecture, zero-trust cloud security (IAM, AWS WAF, KMS), and resilient CI/CD pipelines via GitHub Actions and ArgoCD under strict compliance standards (GxP, HIPAA, GDPR, NIST). His independent research focuses on autonomous DevSecOps agents, AI-driven failure remediation, and edge-cloud orchestration.
+        His scholarly contributions center on solving critical industry challenges at the intersection of enterprise cloud computing and artificial intelligence—including autonomous DevSecOps failure remediation, carbon-aware cloud orchestration, multi-cloud governance, and edge-cloud distributed computing. His work is published in peer-reviewed journals and international IEEE proceedings, actively advancing reliability and sustainability in next-generation cloud architectures.
       </p>
 
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-num">14+</div>
-          <div class="stat-label">Years Experience</div>
-        </div>
-        <div class="stat-card">
           <div class="stat-num">20+</div>
-          <div class="stat-label">Publications</div>
+          <div class="stat-label">Scholarly Publications</div>
         </div>
         <div class="stat-card">
           <div class="stat-num">70+</div>
-          <div class="stat-label">Citations</div>
+          <div class="stat-label">Verified Citations</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">IEEE / SCRS</div>
+          <div class="stat-label">Senior Member & Fellow</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">14+</div>
+          <div class="stat-label">Years Field Leadership</div>
         </div>
       </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Memberships in Prestigious Associations -->
     <section>
-      <h2>Experience</h2>
-      <div class="exp-item">
-        <div class="exp-role">Senior DevOps Engineer (AWS) · Evinova, Inc. (AstraZeneca Group)</div>
-        <div class="exp-meta">Cloud Platform Engineering · Gaithersburg, MD · May 2021 – Present</div>
+      <h2>Distinguished Memberships & Credentials</h2>
+      <ul>
+        <li><strong>IEEE Senior Member (SMIEEE):</strong> Recognized by the Institute of Electrical and Electronics Engineers—a distinction conferred upon less than 10% of members for significant performance and professional maturity.</li>
+        <li><strong>Fellow, Soft Computing Research Society (FSCRS):</strong> Conferred by the Soft Computing Research Society in recognition of scholarly contributions and distinguished impact in computational intelligence and applied computing.</li>
+        <li><strong>Member, Association for Computing Machinery (ACM):</strong> Professional member of the world's largest educational and scientific computing society.</li>
+        <li><strong>Adobe Certified Expert:</strong> AEM Developer Certification for enterprise digital experience platforms.</li>
+      </ul>
+    </section>
+
+    <!-- Judging and Editorial Roles -->
+    <section>
+      <h2>Judging the Work of Others & Editorial Service</h2>
+      <ul>
+        <li><strong>Academic Editor & Peer Reviewer:</strong> <em>Journal of Computer Science and Technology</em> — reviewing novel contributions in distributed systems, software engineering, and machine learning.</li>
+        <li><strong>Peer Reviewer:</strong> Multiple flagship IEEE International Conferences and Elsevier Journals.</li>
+        <li><strong>Technical Program Committee & Session Chair:</strong> Appointed to technical review boards and conference session leadership for international computing forums.</li>
+        <li><strong>Hackathon & Technical Judge:</strong> Evaluator for collegiate and professional software design competitions.</li>
+      </ul>
+    </section>
+
+    <!-- Leading / Critical Roles -->
+    <section>
+      <h2>Leading & Critical Professional Roles</h2>
+      <div class="item">
+        <div class="item-title">Senior DevOps Engineer (AWS) · Evinova, Inc. (AstraZeneca Group)</div>
+        <div class="item-meta">Cloud Platform Engineering · Gaithersburg, MD · May 2021 – Present</div>
         <p>
-          Architecting, automating, and maintaining secure multi-account AWS cloud infrastructure and Kubernetes platforms supporting enterprise-grade, multi-tenant SaaS solutions in regulated life sciences:
+          Serves in a critical role architecting, securing, and operating multi-tenant SaaS cloud infrastructure and Kubernetes platforms for life sciences:
         </p>
         <ul>
-          <li><strong>IaC & Multi-Account Architecture:</strong> Design and build modular, reusable infrastructure using AWS CDK (TypeScript), Projen, and CloudFormation across multi-account architectures managed with AWS Control Tower.</li>
-          <li><strong>Kubernetes & Containers:</strong> Deploy and manage containerized workloads on Amazon EKS using Helm charts, RBAC, network policies, and auto-scaling.</li>
-          <li><strong>GitOps & CI/CD:</strong> Implement automated, repeatable CI/CD pipelines using GitHub Actions and GitOps workflows via ArgoCD with built-in validation, automated rollback, and security checks.</li>
-          <li><strong>Security & Compliance:</strong> Enforce least-privilege IAM policies, KMS encryption standards, AWS WAF rules, and CloudTrail auditing to meet GxP, HIPAA, GDPR, and NIST compliance.</li>
-          <li><strong>Observability:</strong> Build centralized telemetry, metrics, and alerting frameworks with OpenTelemetry, Prometheus, Grafana, and AWS CloudWatch.</li>
+          <li>Engineered modular Infrastructure as Code (IaC) architectures with AWS CDK (TypeScript) and Projen across multi-account structures governed by AWS Control Tower.</li>
+          <li>Orchestrated production Kubernetes (Amazon EKS) clusters, RBAC frameworks, and GitOps workflows via ArgoCD and GitHub Actions under strict GxP, HIPAA, and GDPR standards.</li>
+          <li>Implemented end-to-end observability, distributed tracing, and automated incident mitigation using OpenTelemetry, Prometheus, and Grafana.</li>
         </ul>
       </div>
 
-      <div class="exp-item">
-        <div class="exp-role">Senior Consultant – AEM & Digital Platforms · Maganti IT Resources LLC</div>
-        <div class="exp-meta">Urbana, IL · March 2018 – Present</div>
+      <div class="item">
+        <div class="item-title">Senior Consultant – AEM & Digital Platforms · Maganti IT Resources LLC</div>
+        <div class="item-meta">Urbana, IL · March 2018 – Present</div>
         <p>
-          Leading digital experience platform (DXP) architectures, continuous deployment automation, and enterprise content management systems for Fortune 500 clients.
+          Lead architect delivering enterprise digital experience platforms (DXPs), zero-trust access models, and continuous deployment pipelines across multi-cloud deployments for Fortune 500 clients.
         </p>
       </div>
     </section>
 
-    <!-- Technical Skills Section -->
+    <!-- Scholarly Articles & Research Publications -->
     <section>
-      <h2>Core Technical Skills</h2>
-      <ul>
-        <li><strong>Cloud & AWS Services:</strong> VPC, IAM, Amazon EKS, Lambda, EC2, S3, RDS, AWS WAF, EventBridge, CloudTrail, KMS, CloudFront, AWS Control Tower, Transit Gateway, ALB.</li>
-        <li><strong>Infrastructure as Code (IaC):</strong> AWS CDK (TypeScript), AWS CloudFormation, Projen, Terraform.</li>
-        <li><strong>Containers & Orchestration:</strong> Docker, Kubernetes, Amazon EKS, Helm, Service Meshes.</li>
-        <li><strong>CI/CD & GitOps:</strong> ArgoCD, GitHub Actions, Jenkins, Automated Rollbacks & Pipeline Security.</li>
-        <li><strong>Observability & SRE:</strong> OpenTelemetry, Prometheus, Grafana, AWS CloudWatch, Distributed Tracing.</li>
-        <li><strong>Security & Compliance:</strong> IAM Boundary Policies, Zero-Trust Architecture, KMS, GxP, HIPAA, GDPR, NIST.</li>
-        <li><strong>Programming & Scripting:</strong> TypeScript, Python, Bash, Java.</li>
-      </ul>
-    </section>
-
-    <!-- Honors & Professional Credentials -->
-    <section>
-      <h2>Honors & Credentials</h2>
-      <ul>
-        <li><strong>IEEE Senior Member</strong> (Senior Member of the Institute of Electrical and Electronics Engineers)</li>
-        <li><strong>SCRS Fellow</strong> (Fellow, Soft Computing Research Society)</li>
-        <li><strong>ACM Member</strong> (Association for Computing Machinery)</li>
-        <li><strong>Adobe Certified Expert</strong> — AEM Sites Developer</li>
-      </ul>
-    </section>
-
-    <!-- Professional & Editorial Service -->
-    <section>
-      <h2>Academic & Professional Service</h2>
-      <ul>
-        <li><strong>Academic Editor & Peer Reviewer:</strong> Journal of Computer Science & Technology</li>
-        <li><strong>Peer Reviewer:</strong> Elsevier journals and IEEE conferences</li>
-        <li><strong>Conference Leadership:</strong> Keynote speaker, session chair, and technical judge</li>
-        <li><strong>Patent & Innovation:</strong> Predictive LLM-based CI/CD failure prevention and automated remediation systems</li>
-      </ul>
-    </section>
-
-    <!-- Selected Publications -->
-    <section>
-      <h2>Selected Publications</h2>
+      <h2>Selected Scholarly Publications</h2>
       <ul class="pub-list">
         <li class="pub-item">
           <a class="pub-title" href="https://doi.org/10.1109/i3ctcon68242.2026.11507837" target="_blank">Cognitive AI Orchestration for Autonomous Edge-Cloud Continuums</a>
@@ -307,29 +243,32 @@
           <div class="pub-meta">International Journal of Emerging Research in Engineering and Technology, 2024</div>
         </li>
         <li class="pub-item">
+          <span class="pub-title">Zero-Trust Multi-Cloud Architecture for Secure Experience Management</span>
+          <div class="pub-meta">International Journal of Emerging Trends in Computer Science and Information, 2023</div>
+        </li>
+        <li class="pub-item">
           <span class="pub-title">Autonomous DevSecOps Agent for Continuous Governance and Compliance in Multi-Cloud DXPs</span>
           <div class="pub-meta">American International Journal of Computer Science and Technology, 2023</div>
         </li>
       </ul>
       <p style="margin-top: 1rem;">
-        <a href="https://scholar.google.com/citations?user=8uy_LdgAAAAJ&hl=en" target="_blank">View full list of publications on Google Scholar &rarr;</a>
+        <a href="https://scholar.google.com/citations?user=8uy_LdgAAAAJ&hl=en" target="_blank">View complete publication and citation metrics on Google Scholar &rarr;</a>
       </p>
     </section>
 
     <!-- Education -->
     <section>
       <h2>Education</h2>
-      <div class="exp-item">
-        <div class="exp-role">Master of Science in Computer Science</div>
-        <div class="exp-meta">Sacred Heart University, USA</div>
+      <div class="item">
+        <div class="item-title">Master of Science in Computer Science</div>
+        <div class="item-meta">Sacred Heart University, USA</div>
       </div>
-      <div class="exp-item">
-        <div class="exp-role">Bachelor of Technology in Electronics & Communication Engineering</div>
-        <div class="exp-meta">B.V. Raju Institute of Technology, India</div>
+      <div class="item">
+        <div class="item-title">Bachelor of Technology in Electronics & Communication Engineering</div>
+        <div class="item-meta">B.V. Raju Institute of Technology, India</div>
       </div>
     </section>
 
-    <!-- Footer -->
     <footer>
       &copy; <span id="year"></span> Siva Sai Krishna Suryadevara. All rights reserved.
     </footer>
