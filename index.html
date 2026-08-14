@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Siva Sai Krishna Suryadevara</title>
+  <title>Siva Sai Krishna Suryadevara — Portfolio & Researcher</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,83 +18,306 @@
       --accent-hover: #004499;
       --max-width: 760px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.65;
-      padding: 3rem 1.5rem;
+      padding: 3.5rem 1.5rem;
       display: flex;
       justify-content: center;
     }
-    main { width: 100%; max-width: var(--max-width); }
-    header { margin-bottom: 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; }
-    h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.35rem; }
-    .tagline { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 1rem; }
-    nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }
-    a { color: var(--accent); text-decoration: none; font-weight: 500; }
-    a:hover { color: var(--accent-hover); text-decoration: underline; }
-    section { margin-bottom: 2.5rem; }
-    h2 { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.35rem; }
-    p { margin-bottom: 1rem; color: #333; }
-    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-top: 1.25rem; }
-    .stat-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; text-align: center; }
-    .stat-num { font-size: 1.75rem; font-weight: 700; color: var(--text); }
-    .stat-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem; }
-    .item { margin-bottom: 1.25rem; }
-    .item-title { font-weight: 600; font-size: 1rem; }
-    .item-meta { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.35rem; }
-    ul { list-style-type: disc; padding-left: 1.25rem; }
-    li { margin-bottom: 0.6rem; color: #333; }
-    footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--text-muted); text-align: center; }
+
+    main {
+      width: 100%;
+      max-width: var(--max-width);
+    }
+
+    header {
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+
+    .tagline {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 1.1rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.15s ease;
+    }
+
+    a:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.35rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.1rem;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    /* Experience & Education Items */
+    .exp-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .exp-role {
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+
+    .exp-meta {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    /* Lists */
+    ul {
+      list-style-type: disc;
+      padding-left: 1.25rem;
+    }
+
+    li {
+      margin-bottom: 0.6rem;
+      color: #333;
+    }
+
+    /* Publications */
+    .pub-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .pub-item {
+      margin-bottom: 1.25rem;
+    }
+
+    .pub-title {
+      font-weight: 600;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .pub-meta {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    footer {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
   </style>
 </head>
 <body>
+
   <main>
+    <!-- Header -->
     <header>
       <h1>Siva Sai Krishna Suryadevara</h1>
-      <p class="tagline">Software Engineer & Researcher</p>
+      <p class="tagline">Enterprise Platform Architect & Independent Researcher — Cloud, AI/ML & DevSecOps</p>
       <nav>
+        <a href="https://scholar.google.com/citations?user=8uy_LdgAAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar</a>
+        <a href="https://orcid.org/0009-0009-0674-2658" target="_blank" rel="noreferrer">ORCID</a>
         <a href="https://github.com/SivaSaiKrishnaSuryadevara" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href="https://scholar.google.com" target="_blank" rel="noreferrer">Google Scholar</a>
+        <a href="https://scrs.in/scrs-fellow/694" target="_blank" rel="noreferrer">SCRS Fellow Profile</a>
       </nav>
     </header>
 
+    <!-- About Section -->
     <section>
       <h2>About</h2>
       <p>
-        Software engineer and researcher focused on scalable distributed systems, cloud computing, and AI/ML applications.
+        Siva Sai Krishna Suryadevara is a Senior Software Engineer, Lead AEM Consultant, and independent researcher with extensive experience delivering cloud-native architectures, enterprise digital experience platforms (DXPs), and AI-driven automation systems for Fortune 500 organizations.
       </p>
+      <p>
+        His research bridges enterprise software engineering and applied artificial intelligence—focusing on LLM-driven DevSecOps automation, carbon-aware cloud orchestration, multi-cloud governance, and autonomous edge-cloud continuums. He actively serves as an Academic Editor and peer reviewer for leading IEEE conferences and Elsevier journals.
+      </p>
+
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-num">5+</div>
-          <div class="stat-label">Projects Built</div>
+          <div class="stat-num">20+</div>
+          <div class="stat-label">Publications</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num">Active</div>
-          <div class="stat-label">Open Source</div>
+          <div class="stat-num">70+</div>
+          <div class="stat-label">Citations</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num">2026</div>
-          <div class="stat-label">Research & Dev</div>
+          <div class="stat-num">14+</div>
+          <div class="stat-label">Years Experience</div>
         </div>
       </div>
     </section>
 
+    <!-- Experience Section -->
     <section>
-      <h2>Skills & Technologies</h2>
+      <h2>Experience</h2>
+      <div class="exp-item">
+        <div class="exp-role">Senior Software Engineer / AWS DevOps Engineer · Evinova (AstraZeneca)</div>
+        <div class="exp-meta">May 2021 – Present</div>
+        <p>
+          Architecting resilient cloud infrastructure, DevSecOps pipelines, and scalable health-tech platforms across multi-cloud environments.
+        </p>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-role">Senior Consultant – AEM & Digital Platforms · Maganti IT Resources LLC</div>
+        <div class="exp-meta">Urbana, IL · March 2018 – Present</div>
+        <p>
+          Delivering enterprise content management, CI/CD automation, and cloud-native AEM architectures for enterprise clients across regulated industries.
+        </p>
+      </div>
+    </section>
+
+    <!-- Honors & Professional Credentials -->
+    <section>
+      <h2>Honors & Credentials</h2>
       <ul>
-        <li><strong>Languages:</strong> Python, Java, JavaScript/TypeScript, SQL, C++</li>
-        <li><strong>Platforms & Tools:</strong> Docker, Git, Linux, Cloud Architecture, REST APIs</li>
+        <li><strong>IEEE Senior Member</strong> (Senior Member of the Institute of Electrical and Electronics Engineers)</li>
+        <li><strong>SCRS Fellow</strong> (Fellow, Soft Computing Research Society)</li>
+        <li><strong>ACM Member</strong> (Association for Computing Machinery)</li>
+        <li><strong>Adobe Certified Expert</strong> — AEM Sites Developer</li>
       </ul>
     </section>
 
+    <!-- Professional & Editorial Service -->
+    <section>
+      <h2>Academic & Professional Service</h2>
+      <ul>
+        <li><strong>Academic Editor & Peer Reviewer:</strong> Journal of Computer Science & Technology</li>
+        <li><strong>Peer Reviewer:</strong> Elsevier journals and IEEE conferences</li>
+        <li><strong>Conference Leadership:</strong> Keynote speaker, session chair, and student hackathon judge</li>
+        <li><strong>Patent & Innovation:</strong> Inventor of predictive LLM-based CI/CD failure prevention and automated remediation systems</li>
+      </ul>
+    </section>
+
+    <!-- Selected Publications -->
+    <section>
+      <h2>Selected Publications</h2>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <a class="pub-title" href="https://doi.org/10.1109/i3ctcon68242.2026.11507837" target="_blank">Cognitive AI Orchestration for Autonomous Edge-Cloud Continuums</a>
+          <div class="pub-meta">IEEE International Conference for Convergence in Computing Technology (I3CTCON), 2026</div>
+        </li>
+        <li class="pub-item">
+          <a class="pub-title" href="https://doi.org/10.1109/icsft66733.2026.11506646" target="_blank">Multi-Cloud Program Management for Large Scale Deployment</a>
+          <div class="pub-meta">IEEE International Conference on Smart Futuristic Technology (ICSFT), 2026</div>
+        </li>
+        <li class="pub-item">
+          <a class="pub-title" href="https://doi.org/10.1109/iceei68459.2025.11330686" target="_blank">Deep Reinforcement Policy for Coordinating Cooperative Autonomous Vehicles at Highway Intersection Merges</a>
+          <div class="pub-meta">IEEE International Conference on Electrical Engineering and Informatics (ICEEI), 2025</div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-title">AI-Driven Carbon-Aware Orchestration for Sustainable Cloud Deployments</span>
+          <div class="pub-meta">International Journal of Emerging Research in Engineering and Technology, 2024</div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-title">Zero-Trust Multi-Cloud Architecture for Secure Experience Management</span>
+          <div class="pub-meta">International Journal of Emerging Trends in Computer Science and Information, 2023</div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-title">Autonomous DevSecOps Agent for Continuous Governance and Compliance in Multi-Cloud DXPs</span>
+          <div class="pub-meta">American International Journal of Computer Science and Technology, 2023</div>
+        </li>
+      </ul>
+      <p style="margin-top: 1rem;">
+        <a href="https://scholar.google.com/citations?user=8uy_LdgAAAAJ&hl=en" target="_blank">View full list of publications on Google Scholar &rarr;</a>
+      </p>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <h2>Education</h2>
+      <div class="exp-item">
+        <div class="exp-role">Master of Science in Computer Science</div>
+        <div class="exp-meta">Sacred Heart University, USA</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-role">Bachelor of Technology in Electronics & Communication Engineering</div>
+        <div class="exp-meta">B.V. Raju Institute of Technology, India</div>
+      </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
       &copy; <span id="year"></span> Siva Sai Krishna Suryadevara. All rights reserved.
     </footer>
   </main>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
