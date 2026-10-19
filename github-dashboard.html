@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GitHub Repo Stats</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --border: rgba(11,11,11,0.10);
+  --hover: rgba(11,11,11,0.04);
+  --stars: #2a78d6;
+  --forks: #eb6834;
+  --accent: #2a78d6;
+  --critical: #d03b3b;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d;
+    --surface: #1a1a19;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --muted: #898781;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --border: rgba(255,255,255,0.10);
+    --hover: rgba(255,255,255,0.05);
+    --stars: #3987e5;
+    --forks: #d95926;
+    --accent: #3987e5;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d;
+  --surface: #1a1a19;
+  --ink: #ffffff;
+  --ink-2: #c3c2b7;
+  --muted: #898781;
+  --grid: #2c2c2a;
+  --axis: #383835;
+  --border: rgba(255,255,255,0.10);
+  --hover: rgba(255,255,255,0.05);
+  --stars: #3987e5;
+  --forks: #d95926;
+  --accent: #3987e5;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+main { max-width: 1040px; margin: 0 auto; padding: 24px 16px 48px; }
+header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+h1 { font-size: 20px; font-weight: 600; margin: 0; }
+h2 { font-size: 15px; font-weight: 600; margin: 0; }
+.sub { color: var(--ink-2); margin: 4px 0 0; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+form.controls { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: end; }
+.field { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.field label { font-size: 12px; color: var(--ink-2); }
+input[type=text], input[type=password], select {
+  font: inherit; color: var(--ink); background: var(--page);
+  border: 1px solid var(--border); border-radius: 8px; padding: 7px 10px; min-width: 0;
+}
+#user { width: 240px; max-width: 100%; }
+#token { width: 220px; max-width: 100%; }
+button {
+  font: inherit; cursor: pointer; border-radius: 8px; padding: 7px 14px;
+  border: 1px solid var(--border); background: var(--surface); color: var(--ink);
+}
+button.primary { background: var(--ink); color: var(--surface); border-color: var(--ink); font-weight: 600; }
+button:disabled { opacity: .5; cursor: default; }
+.check { display: flex; align-items: center; gap: 6px; color: var(--ink-2); font-size: 13px; padding-bottom: 8px; }
+#themeBtn { padding: 5px 10px; font-size: 12px; color: var(--ink-2); }
+
+#status { margin-top: 12px; color: var(--ink-2); min-height: 20px; }
+#status.error { color: var(--critical); }
+#status.error::before { content: "⚠ "; }
+
+.tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
+.tile { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; min-width: 0; }
+.tile .label { font-size: 12px; color: var(--ink-2); display: flex; align-items: center; gap: 6px; }
+.tile .value { font-size: 28px; font-weight: 600; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tile .value.hero { font-size: 48px; line-height: 1.1; }
+.tile .note { font-size: 12px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.key { width: 10px; height: 10px; border-radius: 2px; display: inline-block; flex: none; }
+.key.stars { background: var(--stars); }
+.key.forks { background: var(--forks); }
+
+.chart-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.legend { display: flex; gap: 14px; color: var(--ink-2); font-size: 12px; align-items: center; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.seg { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.seg button { border: 0; border-radius: 0; padding: 4px 10px; font-size: 12px; color: var(--ink-2); background: transparent; }
+.seg button[aria-pressed=true] { background: var(--hover); color: var(--ink); font-weight: 600; }
+
+.chart { position: relative; margin-top: 12px; --name-w: 180px; }
+.axis { position: relative; height: 18px; margin-left: calc(var(--name-w) + 12px); margin-right: 48px; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.axis span { position: absolute; transform: translateX(-50%); }
+.axis span:first-child { transform: none; }
+.plot { position: relative; }
+.gridlines { position: absolute; inset: 0 48px 0 calc(var(--name-w) + 12px); pointer-events: none; }
+.gridlines i { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--grid); }
+.gridlines i:first-child { background: var(--axis); }
+.row {
+  position: relative; display: grid; grid-template-columns: var(--name-w) 1fr 36px; gap: 12px;
+  align-items: center; padding: 5px 0; border-radius: 6px; outline: none;
+}
+.row:hover, .row:focus-visible { background: var(--hover); }
+.row:focus-visible { box-shadow: 0 0 0 2px var(--accent); }
+.row .name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: right; color: var(--ink-2); font-size: 13px; }
+.bars { position: relative; display: flex; flex-direction: column; gap: 2px; }
+.tip-label { position: absolute; font-size: 11px; line-height: 10px; color: var(--ink-2); font-variant-numeric: tabular-nums; white-space: nowrap; padding-left: 6px; }
+.bar { height: 10px; border-radius: 0 4px 4px 0; min-width: 0; }
+.bar.stars { background: var(--stars); }
+.bar.forks { background: var(--forks); }
+.bar.zero { width: 2px !important; opacity: .35; }
+.chart-foot { margin-top: 8px; font-size: 12px; color: var(--muted); }
+
+.tooltip {
+  position: fixed; z-index: 10; pointer-events: none; display: none;
+  background: var(--surface); color: var(--ink); border: 1px solid var(--border);
+  border-radius: 8px; padding: 8px 10px; font-size: 12px; box-shadow: 0 4px 16px rgba(0,0,0,.12);
+  max-width: 260px;
+}
+.tooltip b { display: block; margin-bottom: 4px; overflow-wrap: anywhere; }
+.tooltip div { display: flex; align-items: center; gap: 6px; font-variant-numeric: tabular-nums; }
+.tooltip div span:last-child { margin-left: auto; padding-left: 12px; font-weight: 600; }
+
+.table-wrap { overflow-x: auto; margin-top: 8px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { padding: 8px 10px; border-bottom: 1px solid var(--grid); text-align: left; white-space: nowrap; }
+td.desc { white-space: normal; color: var(--ink-2); min-width: 280px; }
+th { font-weight: 600; color: var(--ink-2); font-size: 12px; }
+th button { all: unset; cursor: pointer; display: inline-flex; gap: 4px; align-items: center; }
+th button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+th .arrow { color: var(--muted); width: 10px; display: inline-block; visibility: hidden; }
+th[aria-sort] .arrow { visibility: visible; }
+th[aria-sort] .arrow { color: var(--ink); }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+th.num button { flex-direction: row-reverse; }
+.badge { font-size: 11px; color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 0 6px; margin-left: 6px; }
+.empty { color: var(--muted); padding: 24px 0; text-align: center; }
+
+@media (max-width: 720px) {
+  .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tile .value.hero { font-size: 36px; }
+  .chart { --name-w: 110px; }
+}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <h1>GitHub repo stats</h1>
+      <p class="sub">Stars and forks across a user's public repositories, pulled live from the GitHub API.</p>
+    </div>
+    <button id="themeBtn" type="button" title="Switch color theme">Theme: system</button>
+  </header>
+
+  <section class="card">
+    <form class="controls" id="form">
+      <div class="field">
+        <label for="user">GitHub username</label>
+        <input id="user" type="text" autocomplete="off" spellcheck="false" placeholder="octocat" required>
+      </div>
+      <div class="field">
+        <label for="token">Token (optional, raises rate limit)</label>
+        <input id="token" type="password" autocomplete="off" placeholder="ghp_…">
+      </div>
+      <label class="check"><input id="forksToggle" type="checkbox"> Include forked repos</label>
+      <button class="primary" id="loadBtn" type="submit">Load</button>
+    </form>
+    <div id="status" role="status" aria-live="polite"></div>
+  </section>
+
+  <section class="tiles" aria-label="Totals">
+    <div class="tile"><div class="label"><span class="key stars"></span>Total stars</div><div class="value hero" id="tStars">–</div><div class="note" id="nStars">&nbsp;</div></div>
+    <div class="tile"><div class="label"><span class="key forks"></span>Total forks</div><div class="value" id="tForks">–</div><div class="note" id="nForks">&nbsp;</div></div>
+    <div class="tile"><div class="label">Repositories</div><div class="value" id="tRepos">–</div><div class="note" id="nRepos">&nbsp;</div></div>
+    <div class="tile"><div class="label">Most starred</div><div class="value" id="tTop" style="font-size:18px;line-height:1.9">–</div><div class="note" id="nTop">&nbsp;</div></div>
+  </section>
+
+  <section class="card">
+    <div class="chart-head">
+      <h2 id="chartTitle">Stars and forks by repository</h2>
+      <div class="legend" aria-hidden="true">
+        <span><span class="key stars"></span>Stars</span>
+        <span><span class="key forks"></span>Forks</span>
+      </div>
+      <div class="seg" role="group" aria-label="Rank chart by">
+        <button type="button" data-rank="stars" aria-pressed="true">Top by stars</button>
+        <button type="button" data-rank="forks" aria-pressed="false">Top by forks</button>
+      </div>
+    </div>
+    <div class="chart" id="chart"><div class="empty">Enter a username and press Load.</div></div>
+    <div class="chart-foot" id="chartFoot"></div>
+  </section>
+
+  <section class="card">
+    <h2>All repositories</h2>
+    <div class="table-wrap">
+      <table id="table">
+        <thead>
+          <tr>
+            <th data-key="name"><button type="button">Repository <span class="arrow"></span></button></th>
+            <th data-key="language"><button type="button">Language <span class="arrow"></span></button></th>
+            <th class="num" data-key="stars"><button type="button">Stars <span class="arrow"></span></button></th>
+            <th class="num" data-key="forks"><button type="button">Forks <span class="arrow"></span></button></th>
+            <th data-key="updated"><button type="button">Last push <span class="arrow"></span></button></th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody><tr><td colspan="6" class="empty">No data yet.</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+<div class="tooltip" id="tip" role="tooltip"></div>
+
+<script>
+(() => {
+  const DEFAULT_USER = "SivaSaiKrishnaSuryadevara";
+  const CHART_LIMIT = 15;
+  const $ = (id) => document.getElementById(id);
+
+  const store = {
+    get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+    set(k, v) { try { localStorage.setItem(k, v); } catch {} },
+  };
+
+  const state = {
+    all: [],
+    includeForks: false,
+    rankBy: "stars",
+    sortKey: "stars",
+    sortDir: "desc",
+    user: "",
+  };
+
+  // ---------- theme ----------
+  const themes = ["system", "light", "dark"];
+  function applyTheme(t) {
+    if (t === "system") document.documentElement.removeAttribute("data-theme");
+    else document.documentElement.setAttribute("data-theme", t);
+    $("themeBtn").textContent = "Theme: " + t;
+    store.set("ghdash-theme", t);
+  }
+  applyTheme(themes.includes(store.get("ghdash-theme")) ? store.get("ghdash-theme") : "system");
+  $("themeBtn").addEventListener("click", () => {
+    const cur = store.get("ghdash-theme") || "system";
+    applyTheme(themes[(themes.indexOf(cur) + 1) % themes.length]);
+  });
+
+  // ---------- formatting ----------
+  const fmt = (n) => n.toLocaleString("en-US");
+  const compact = (n) => n < 10000 ? fmt(n)
+    : new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1 }).format(n);
+  const dateFmt = (iso) => iso ? new Date(iso).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }) : "–";
+
+  function setStatus(msg, isError = false) {
+    $("status").textContent = msg;
+    $("status").classList.toggle("error", isError);
+  }
+
+  // ---------- data ----------
+  async function fetchRepos(user, token) {
+    const headers = { Accept: "application/vnd.github+json" };
+    if (token) headers.Authorization = "Bearer " + token;
+    const repos = [];
+    let rate = null;
+    for (let page = 1; page <= 20; page++) {
+      const url = `https://api.github.com/users/${encodeURIComponent(user)}/repos?per_page=100&page=${page}&sort=pushed`;
+      const res = await fetch(url, { headers });
+      rate = { remaining: res.headers.get("x-ratelimit-remaining"), limit: res.headers.get("x-ratelimit-limit"), reset: res.headers.get("x-ratelimit-reset") };
+      if (res.status === 404) throw new Error(`No GitHub user named “${user}”.`);
+      if (res.status === 401) throw new Error("The token was rejected. Check it or leave the field empty.");
+      if (res.status === 403 || res.status === 429) {
+        if (rate.remaining === "0") {
+          const when = rate.reset ? new Date(rate.reset * 1000).toLocaleTimeString() : "later";
+          throw new Error(`GitHub rate limit reached (${rate.limit}/hour). It resets at ${when}. Add a token to raise the limit.`);
+        }
+        throw new Error("GitHub refused the request (HTTP " + res.status + ").");
+      }
+      if (!res.ok) throw new Error("GitHub returned HTTP " + res.status + ".");
+      const batch = await res.json();
+      repos.push(...batch);
+      if (batch.length < 100) break;
+    }
+    return { repos, rate };
+  }
+
+  const normalize = (r) => ({
+    name: r.name,
+    url: r.html_url,
+    language: r.language || "",
+    stars: r.stargazers_count || 0,
+    forks: r.forks_count || 0,
+    updated: r.pushed_at || r.updated_at,
+    description: r.description || "",
+    fork: !!r.fork,
+    archived: !!r.archived,
+  });
+
+  const visible = () => state.all.filter((r) => state.includeForks || !r.fork);
+
+  // ---------- render: tiles ----------
+  function renderTiles(list) {
+    const stars = list.reduce((s, r) => s + r.stars, 0);
+    const forks = list.reduce((s, r) => s + r.forks, 0);
+    $("tStars").textContent = compact(stars);
+    $("tStars").title = fmt(stars);
+    $("tForks").textContent = compact(forks);
+    $("tForks").title = fmt(forks);
+    $("tRepos").textContent = fmt(list.length);
+    const starred = list.filter((r) => r.stars > 0).length;
+    $("nStars").textContent = list.length ? `${fmt(starred)} of ${fmt(list.length)} repos have stars` : " ";
+    $("nForks").textContent = list.length ? `${fmt(list.filter((r) => r.forks > 0).length)} repos have been forked` : " ";
+    const forkCount = state.all.filter((r) => r.fork).length;
+    $("nRepos").textContent = state.includeForks ? `incl. ${fmt(forkCount)} forked` : (forkCount ? `${fmt(forkCount)} forked repos hidden` : "public, non-fork");
+    const top = [...list].sort((a, b) => b.stars - a.stars)[0];
+    if (top && top.stars > 0) {
+      $("tTop").textContent = top.name;
+      $("tTop").title = top.name;
+      $("nTop").textContent = `${fmt(top.stars)} stars · ${fmt(top.forks)} forks`;
+    } else {
+      $("tTop").textContent = "–";
+      $("nTop").textContent = list.length ? "No starred repos yet" : " ";
+    }
+  }
+
+  // ---------- render: chart ----------
+  function niceTicks(max) {
+    if (max <= 0) return { top: 1, ticks: [0, 1] };
+    const rough = max / 4;
+    const mag = Math.pow(10, Math.floor(Math.log10(rough)));
+    const step = [1, 2, 5, 10].map((m) => m * mag).find((s) => s >= rough);
+    const s = Math.max(1, step);
+    const top = Math.ceil(max / s) * s;
+    const ticks = [];
+    for (let v = 0; v <= top + 1e-9; v += s) ticks.push(v);
+    return { top, ticks };
+  }
+
+  function renderChart(list) {
+    const chart = $("chart");
+    const key = state.rankBy;
+    const ranked = [...list].sort((a, b) => b[key] - a[key] || b.stars + b.forks - (a.stars + a.forks) || a.name.localeCompare(b.name));
+    const shown = ranked.slice(0, CHART_LIMIT);
+    $("chartTitle").textContent = `Top ${shown.length || ""} repositories by ${key}`.replace("  ", " ");
+    $("chartFoot").textContent = list.length > CHART_LIMIT
+      ? `Showing ${CHART_LIMIT} of ${fmt(list.length)} repositories. The table below lists all of them.`
+      : "";
+
+    chart.textContent = "";
+    if (!shown.length) {
+      chart.innerHTML = '<div class="empty">No repositories to show.</div>';
+      return;
+    }
+    const max = Math.max(...shown.map((r) => Math.max(r.stars, r.forks)));
+    const { top, ticks } = niceTicks(max);
+    const pct = (v) => (v / top) * 100;
+
+    const axis = document.createElement("div");
+    axis.className = "axis";
+    axis.setAttribute("aria-hidden", "true");
+    ticks.forEach((t) => {
+      const s = document.createElement("span");
+      s.style.left = pct(t) + "%";
+      s.textContent = compact(t);
+      axis.appendChild(s);
+    });
+    chart.appendChild(axis);
+
+    const plot = document.createElement("div");
+    plot.className = "plot";
+    const grid = document.createElement("div");
+    grid.className = "gridlines";
+    ticks.forEach((t) => {
+      const i = document.createElement("i");
+      i.style.left = pct(t) + "%";
+      grid.appendChild(i);
+    });
+    plot.appendChild(grid);
+
+    // Direct-label only the leader of the ranked metric; tooltip and table carry the rest.
+    shown.forEach((r, idx) => {
+      const row = document.createElement("div");
+      row.className = "row";
+      row.tabIndex = 0;
+      row.setAttribute("aria-label", `${r.name}: ${fmt(r.stars)} stars, ${fmt(r.forks)} forks`);
+
+      const name = document.createElement("div");
+      name.className = "name";
+      name.textContent = r.name;
+
+      const bars = document.createElement("div");
+      bars.className = "bars";
+      for (const k of ["stars", "forks"]) {
+        const b = document.createElement("div");
+        b.className = "bar " + k + (r[k] === 0 ? " zero" : "");
+        b.style.width = pct(r[k]) + "%";
+        bars.appendChild(b);
+      }
+
+      if (idx === 0) {
+        const lab = document.createElement("span");
+        lab.className = "tip-label";
+        lab.textContent = compact(r[key]);
+        lab.style.left = pct(r[key]) + "%";
+        lab.style.top = key === "stars" ? "0" : "12px";
+        bars.appendChild(lab);
+      }
+
+      row.append(name, bars, document.createElement("div"));
+      row.addEventListener("mousemove", (e) => showTip(r, e.clientX, e.clientY));
+      row.addEventListener("mouseleave", hideTip);
+      row.addEventListener("focus", () => { const b = row.getBoundingClientRect(); showTip(r, b.left + b.width / 2, b.top); });
+      row.addEventListener("blur", hideTip);
+      row.addEventListener("click", () => window.open(r.url, "_blank", "noopener"));
+      plot.appendChild(row);
+    });
+    chart.appendChild(plot);
+  }
+
+  const tip = $("tip");
+  function showTip(r, x, y) {
+    tip.innerHTML = "";
+    const b = document.createElement("b");
+    b.textContent = r.name;
+    tip.appendChild(b);
+    for (const [k, label] of [["stars", "Stars"], ["forks", "Forks"]]) {
+      const d = document.createElement("div");
+      d.innerHTML = `<span class="key ${k}"></span><span>${label}</span><span></span>`;
+      d.lastChild.textContent = fmt(r[k]);
+      tip.appendChild(d);
+    }
+    tip.style.display = "block";
+    const w = tip.offsetWidth, h = tip.offsetHeight;
+    let left = x + 14, topPos = y - h - 10;
+    if (left + w > window.innerWidth - 8) left = x - w - 14;
+    if (topPos < 8) topPos = y + 16;
+    tip.style.left = Math.max(8, left) + "px";
+    tip.style.top = topPos + "px";
+  }
+  function hideTip() { tip.style.display = "none"; }
+  window.addEventListener("scroll", hideTip, { passive: true });
+
+  // ---------- render: table ----------
+  function renderTable(list) {
+    const { sortKey: k, sortDir: dir } = state;
+    const mult = dir === "asc" ? 1 : -1;
+    const rows = [...list].sort((a, b) => {
+      let av = a[k], bv = b[k];
+      if (k === "updated") { av = Date.parse(av) || 0; bv = Date.parse(bv) || 0; }
+      if (typeof av === "string") {
+        if (!av && bv) return 1;
+        if (av && !bv) return -1;
+        return av.localeCompare(bv, undefined, { sensitivity: "base" }) * mult;
+      }
+      return (av - bv) * mult || a.name.localeCompare(b.name);
+    });
+
+    document.querySelectorAll("#table th[data-key]").forEach((th) => {
+      const active = th.dataset.key === k;
+      if (active) th.setAttribute("aria-sort", dir === "asc" ? "ascending" : "descending");
+      else th.removeAttribute("aria-sort");
+      th.querySelector(".arrow").textContent = active && dir === "asc" ? "▲" : "▼";
+    });
+
+    const tbody = document.querySelector("#table tbody");
+    tbody.textContent = "";
+    if (!rows.length) {
+      tbody.innerHTML = '<tr><td colspan="6" class="empty">No repositories to show.</td></tr>';
+      return;
+    }
+    for (const r of rows) {
+      const tr = document.createElement("tr");
+      const tdName = document.createElement("td");
+      const a = document.createElement("a");
+      a.href = r.url; a.target = "_blank"; a.rel = "noopener"; a.textContent = r.name;
+      tdName.appendChild(a);
+      if (r.fork) tdName.insertAdjacentHTML("beforeend", '<span class="badge">fork</span>');
+      if (r.archived) tdName.insertAdjacentHTML("beforeend", '<span class="badge">archived</span>');
+      const cells = [
+        tdName,
+        Object.assign(document.createElement("td"), { textContent: r.language || "–" }),
+        Object.assign(document.createElement("td"), { className: "num", textContent: fmt(r.stars) }),
+        Object.assign(document.createElement("td"), { className: "num", textContent: fmt(r.forks) }),
+        Object.assign(document.createElement("td"), { textContent: dateFmt(r.updated) }),
+        Object.assign(document.createElement("td"), { className: "desc", textContent: r.description }),
+      ];
+      tr.append(...cells);
+      tbody.appendChild(tr);
+    }
+  }
+
+  function renderAll() {
+    const list = visible();
+    renderTiles(list);
+    renderChart(list);
+    renderTable(list);
+  }
+
+  // ---------- events ----------
+  document.querySelectorAll("#table th[data-key] button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const key = btn.parentElement.dataset.key;
+      if (state.sortKey === key) state.sortDir = state.sortDir === "asc" ? "desc" : "asc";
+      else { state.sortKey = key; state.sortDir = key === "name" || key === "language" ? "asc" : "desc"; }
+      renderTable(visible());
+    });
+  });
+
+  document.querySelectorAll(".seg button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      state.rankBy = btn.dataset.rank;
+      document.querySelectorAll(".seg button").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+      renderChart(visible());
+    });
+  });
+
+  $("forksToggle").addEventListener("change", (e) => {
+    state.includeForks = e.target.checked;
+    if (state.all.length) renderAll();
+  });
+
+  $("form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const user = $("user").value.trim().replace(/^@/, "").replace(/^https?:\/\/github\.com\//i, "").split("/")[0];
+    if (!user) return;
+    $("user").value = user;
+    $("loadBtn").disabled = true;
+    setStatus(`Loading repositories for ${user}…`);
+    try {
+      const { repos, rate } = await fetchRepos(user, $("token").value.trim());
+      state.all = repos.map(normalize);
+      state.user = user;
+      store.set("ghdash-user", user);
+      const url = new URL(location.href);
+      url.searchParams.set("user", user);
+      history.replaceState(null, "", url);
+      renderAll();
+      const rl = rate && rate.remaining ? ` · API calls left this hour: ${rate.remaining}/${rate.limit}` : "";
+      setStatus(`Loaded ${fmt(state.all.length)} public repositories for ${user} at ${new Date().toLocaleTimeString()}${rl}`);
+    } catch (err) {
+      const msg = err instanceof TypeError ? "Could not reach the GitHub API. Check your connection." : err.message;
+      setStatus(msg, true);
+    } finally {
+      $("loadBtn").disabled = false;
+    }
+  });
+
+  // ---------- start ----------
+  const fromUrl = new URLSearchParams(location.search).get("user");
+  $("user").value = fromUrl || store.get("ghdash-user") || DEFAULT_USER;
+  $("form").requestSubmit();
+})();
+</script>
+</body>
+</html>
